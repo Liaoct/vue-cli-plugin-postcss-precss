@@ -18,6 +18,12 @@ module.exports = [
         default: true,
     },
     {
+        type: 'confirm',
+        name: 'assets',
+        message: 'Use PostCSS Assets to manage your asset path for css? If you want to resolve the assets that in public folder, you need it. ',
+        default: false,
+    },
+    {
         type: 'list',
         name: 'stage',
         message: 'Which stage for CSS features to polyfill?',

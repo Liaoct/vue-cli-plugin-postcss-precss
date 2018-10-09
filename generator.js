@@ -6,6 +6,11 @@ module.exports = (api, opts, rootOptions) => {
             config.plugins = config.plugins || {};
             delete config.plugins.autoprefixer;
             const conf = {
+                "postcss-assets": opts.assets ? {
+                    cachebuster: false,
+                    basePath: 'public/',
+                    loadPaths: []
+                } : opts.assets,
                 "postcss-import": {},
                 "postcss-extend-rule": {},
                 "postcss-advanced-variables": {},
@@ -38,7 +43,6 @@ module.exports = (api, opts, rootOptions) => {
             for (key in conf) {
                 config.plugins[key] = conf[key];
             }
-            console.log(config);
             return config;
         });
     });
